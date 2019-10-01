@@ -1,31 +1,53 @@
 import React, {useEffect, useState} from 'react';
-import { async } from 'q';
 
 
 const Search = () => {
+  //Search state
+  const [search, setSearch] = useState('');
+  //Queried recipes state
+  const [recipes, setRecipes] = useState([]);
+  //Final/submittied query state
+  const [query, setQuery] = useState('');
+
+
   //Edamam app ID & Key
   const appID = "91f4a4a3";
   const appKey = "e21f772a7044945e7fa814b009bd64c5";
 
   //Chicken search query example
-  const query = `https://api.edamam.com/search?q=chicken&app_id=${appID}&app_key=${appKey}&from=0&to=3&calories=591-722&health=alcohol-free`;
+  const edamamResults = `https://api.edamam.com/search?q=${query}&app_id=${appID}&app_key=${appKey}&from=0&to=3`;
 
-  //'[]' argument means that useEffect only happens after first time component rendered
+  //[query] causes useEffect to only run after "query" is updated, so after each form submit
   useEffect(() => {
-    const queryFetch = async() => {
-      const res = await fetch(query);
-      const data = await res.json();
-      console.log(data);
-    };
-    
-    queryFetch();
+    recipeFetch();
+  }, [query]);
+  
+  const recipeFetch = async() => {
+    const res = await fetch(edamamResults);
+    const data = await res.json();
+    // console.log(data.hits);
+    setRecipes(data.hits);
+  };
 
-  },[]);
+  //Update state for search
+  const updateSearch = e => {
+    setSearch(e.target.value);
+    console.log(search);
+  }
+
+  //To handle form submission for search 
+  const handleSearch = e => {
+    e.preventDefault();
+    setQuery(search);
+  }
 
   return(
     <div>
-      <form>
-        <input type = "text" />
+      <form onSubmit = {handleSearch}>
+        <input 
+          type = "text"
+          onChange = {updateSearch}
+        />
         <button>Search</button>
       </form>
     </div>
