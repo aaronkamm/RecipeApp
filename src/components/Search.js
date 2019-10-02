@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react';
+import Recipes from './Recipes';
 
 
 const Search = () => {
   //Search state
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState(null);
   //Queried recipes state
   const [recipes, setRecipes] = useState([]);
   //Final/submittied query state
@@ -15,7 +16,7 @@ const Search = () => {
   const appKey = "e21f772a7044945e7fa814b009bd64c5";
 
   //Chicken search query example
-  const edamamResults = `https://api.edamam.com/search?q=${query}&app_id=${appID}&app_key=${appKey}&from=0&to=3`;
+  const edamamResults = `https://api.edamam.com/search?q=${query}&app_id=${appID}&app_key=${appKey}`;
 
   //[query] causes useEffect to only run after "query" is updated, so after each form submit
   useEffect(() => {
@@ -27,18 +28,20 @@ const Search = () => {
     const data = await res.json();
     // console.log(data.hits);
     setRecipes(data.hits);
+    console.log(data.hits);
   };
 
   //Update state for search
   const updateSearch = e => {
     setSearch(e.target.value);
-    console.log(search);
   }
 
   //To handle form submission for search 
   const handleSearch = e => {
     e.preventDefault();
     setQuery(search);
+    setSearch('');
+    
   }
 
   return(
@@ -47,9 +50,12 @@ const Search = () => {
         <input 
           type = "text"
           onChange = {updateSearch}
+          value = {search}
         />
-        <button>Search</button>
+        <button>Search -- I'm hungry!</button>
       </form>
+      {/*{recipes.map(recipe => <div>{recipe.recipe.label}</div>)}*/}
+      <Recipes recipes = {recipes} />
     </div>
   )
 }
