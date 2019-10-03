@@ -20,16 +20,16 @@ const Search = () => {
 
   //[query] causes useEffect to only run after "query" is updated, so after each form submit
   useEffect(() => {
+    const recipeFetch = async() => {
+      const res = await fetch(edamamResults);
+      const data = await res.json();
+      // console.log(data.hits);
+      setRecipes(data.hits);
+      console.log(data.hits);
+    };
+
     recipeFetch();
   }, [query]);
-  
-  const recipeFetch = async() => {
-    const res = await fetch(edamamResults);
-    const data = await res.json();
-    // console.log(data.hits);
-    setRecipes(data.hits);
-    console.log(data.hits);
-  };
 
   //Update state for search
   const updateSearch = e => {
@@ -41,7 +41,6 @@ const Search = () => {
     e.preventDefault();
     setQuery(search);
     setSearch('');
-    
   }
 
   return(
