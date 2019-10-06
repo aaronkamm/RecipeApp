@@ -1,5 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import Recipes from './Recipes';
+import FormControl from '@material-ui/core/FormControl';
+import Input from '@material-ui/core/Input';
+import Button from '@material-ui/core/Button';
 
 
 const Search = () => {
@@ -46,12 +49,12 @@ const Search = () => {
   return(
     <div>
       <form onSubmit = {handleSearch}>
-        <input 
+        <Input 
           type = "text"
           onChange = {updateSearch}
           value = {search}
         />
-        <button>Search -- I'm hungry!</button>
+        <Button>Search -- I'm hungry!</Button>
       </form>
       {/*{recipes.map(recipe => <div>{recipe.recipe.label}</div>)}*/}
       <Recipes recipes = {recipes} />
