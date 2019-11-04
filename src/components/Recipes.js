@@ -17,27 +17,27 @@ const Recipes = ({recipes}) => {
   const classes = useStyles();
 
   return (
-    <div>
+    <div style = {{padding: `2rem`}}>
       <Grid 
         container
-        
-
-        
       >
-      {recipes.map((recipe, index) => 
-        <Card className = {classes.card} key = {index}>
-          <CardMedia
-            component = 'img'
-            src = {recipe.recipe.image} 
-            alt = {recipe.recipe.label} 
-            height = '50'
-          />
-          <CardContent>
-            {recipe.recipe.label}
-          </CardContent>
-        </Card>
-        )
-      }
+        {recipes.map((recipe, index) =>
+          
+            <Card className = {classes.card} key = {index}>
+                <CardMedia
+                  component = 'img'
+                  src = {recipe.recipe.image} 
+                  alt = {recipe.recipe.label} 
+                  height = {100}
+                />
+                <CardContent>
+                  {recipe.recipe.label}
+                </CardContent>
+            </Card>
+          
+        
+          )
+        }
       </Grid>
     </div>
   )
