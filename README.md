@@ -1,1 +1,5 @@
-Recipe application using Edamam API to query and present recipes the user requests, to demo React Hooks
+A snazzy app to search for recipes :)
+
+Queries to the Edamam API
+
+UI built & designed with ReactJS/Material-UI 
