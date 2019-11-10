@@ -18,9 +18,9 @@ const Search = () => {
   //Chicken search query example
   const edamamResults = `https://api.edamam.com/search?q=${query}&app_id=${appID}&app_key=${appKey}`;
 
-  //[query] causes useEffect to run after "query" is updated on form submit
+  //[query] causes useEffect to run after "query" is updated on form submit 
   useEffect(() => {
-    const recipeFetch = async() => {
+    const recipeFetch = async () => {
       const res = await fetch(edamamResults);
       const data = await res.json();
       // console.log(data.hits);
@@ -35,7 +35,7 @@ const Search = () => {
   const updateSearch = e => {
     setSearch(e.target.value);
   };
-
+ 
   //To handle form submission for search
   const handleSearch = e => {
     e.preventDefault();
