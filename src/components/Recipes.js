@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
 import Recipe from './Recipe';
 
 const useStyles = makeStyles({
@@ -36,6 +37,7 @@ const Recipes = ({recipes}) => {
                 <CardActions>
                   {/* To launch modal containing recipe*/}
                   <Recipe recipe = {recipe}/>
+                  {/*<Button>Recipe</Button> */}
                 </CardActions>
             </Card>
           )

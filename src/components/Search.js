@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 
 const Search = () => {
   //Search state
-  const [search, setSearch] = useState(null);
+  const [search, setSearch] = useState('');
   //Queried recipes state
   const [recipes, setRecipes] = useState([]);
   //Final/submittied query state
@@ -34,6 +34,7 @@ const Search = () => {
   //Update state for search 
   const updateSearch = e => {
     setSearch(e.target.value);
+    console.log(search.length)
   };
  
   //To handle form submission for search
