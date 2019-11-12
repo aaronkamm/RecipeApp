@@ -23,24 +23,14 @@ let rand = () => {
   return Math.round(Math.random() * 20) - 10;
 }
 
-// let getModalStyle = () => {
-//   const top = 50 + rand();
-//   const left = 50 + rand();
 
-//   return {
-//     top: `${top}%`,
-//     left: `${left}%`,
-//     transform: `translate(-${top}%, -${left}%)`
-//   }
-// }
 const Recipe = ({recipe}) => {
   const classes = useStyles();
 
   
   //Modal open state
   const [open, setOpen] = useState(false);
-  //Modal style (static hook; always uses getModalStyle)
-  // const [modalStyle] = useState(getModalStyle);
+  
 
   //Function to open modal
   const handleOpen = () => {
