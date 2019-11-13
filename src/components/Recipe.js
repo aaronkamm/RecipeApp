@@ -15,14 +15,9 @@ const useStyles = makeStyles(theme => ({
     border: '2px solid #000',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
-    width: 400
+    width: '50%'
   }
 }));
-
-let rand = () => {
-  return Math.round(Math.random() * 20) - 10;
-}
-
 
 const Recipe = ({recipe}) => {
   const classes = useStyles();
@@ -30,7 +25,6 @@ const Recipe = ({recipe}) => {
   
   //Modal open state
   const [open, setOpen] = useState(false);
-  
 
   //Function to open modal
   const handleOpen = () => {
