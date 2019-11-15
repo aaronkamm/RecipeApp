@@ -5,10 +5,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
 import Recipe from './Recipe';
 
 const useStyles = makeStyles({
+  root: {
+    flexGrow: 1
+  },
   card: {
     width: 350,
     height: 200
@@ -19,11 +21,13 @@ const Recipes = ({recipes}) => {
   const classes = useStyles();
 
   return (
-    <div style = {{padding: `2rem`}}>
+    <div style = {{marginTop: `2rem`}} className = {classes.root}>
       <Grid 
         container
+        spacing = {2}
       >
         {recipes.map((recipe, index) =>
+            <Grid item xs = {12} sm = {4} >
             <Card className = {classes.card} key = {index}>
                 <CardMedia
                   component = "img"
@@ -40,7 +44,8 @@ const Recipes = ({recipes}) => {
                   {/*<Button>Recipe</Button> */}
                 </CardActions>
             </Card>
-          )
+            </Grid>)
+            
         }
       </Grid>
     </div>

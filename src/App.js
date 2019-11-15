@@ -15,7 +15,6 @@ const App = () => {
           <Typography variant = "h4" component = "h1">Recipe Finder</Typography>
         </Toolbar>
       </AppBar>
-      
       <Search />
     </div>
   );
