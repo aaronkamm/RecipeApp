@@ -13,7 +13,7 @@ const useStyles = makeStyles({
   },
   card: {
     maxWidth: 345,
-    height: 200
+    height: 250
   }
 })
 
@@ -27,7 +27,7 @@ const Recipes = ({recipes}) => {
         spacing = {2}
       >
         {recipes.map((recipe, index) =>
-            <Grid item xs = {12} md = {4} >
+            <Grid item xs = {12} sm = {6} md = {4} >
               <Card className = {classes.card} key = {index}>
                   <CardMedia
                     component = "img"

@@ -1,7 +1,15 @@
 import React, {useEffect, useState} from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import Recipes from './Recipes';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
+
+const useStyles = makeStyles({
+  search: {
+    display: 'flex',
+    justifyContent: 'center'
+  }
+})
 
 const Search = () => {
   //Search state
@@ -43,16 +51,17 @@ const Search = () => {
     setQuery(search);
     setSearch('');
   };
-
+  const classes = useStyles();
   return(
     <div>
-      <form onSubmit = {handleSearch}>
+      <form onSubmit = {handleSearch} className = {classes.search}>
         <Input 
           type = "text"
           onChange = {updateSearch}
           value = {search}
+          
         />
-        <Button variant = "contained">Search -- I'm hungry!</Button>
+        <Button variant = "contained" disabled = {!search ? true : false}>Search -- I'm hungry!</Button>
       </form>
       
       <Recipes recipes = {recipes} />

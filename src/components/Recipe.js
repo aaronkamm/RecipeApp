@@ -7,9 +7,8 @@ const useStyles = makeStyles(theme => ({
   modal: {
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
-
   paper: {
     backgroundColor: theme.palette.background.paper,
     border: '2px solid #000',
@@ -38,8 +37,8 @@ const Recipe = ({recipe}) => {
   return(
     <div>
       <Button onClick = {handleOpen}>Ingredients</Button>
-      <Modal open = {open} onClose = {handleClose} className = {classes.modal} >
-        <div className = {classes.paper}>
+      <Modal disableAutoFocus={true} open = {open} onClose = {handleClose} className = {classes.modal} >
+        <div className = {classes.paper} >
           <h2>{recipe.recipe.label}</h2>
           <ul>
             {(recipe.recipe.ingredients).map((ingredient, index) => 
