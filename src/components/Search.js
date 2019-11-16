@@ -26,7 +26,6 @@ const Search = () => {
       console.log(data.hits);
       setRecipes(data.hits);
       console.log(data);
-      console.log('hello');
     };
     recipeFetch();
   }, [query]);
@@ -35,6 +34,7 @@ const Search = () => {
   const updateSearch = e => {
     setSearch(e.target.value);
     console.log(search.length)
+    console.log(search)
   };
  
   //To handle form submission for search
@@ -54,7 +54,7 @@ const Search = () => {
         />
         <Button variant = "contained">Search -- I'm hungry!</Button>
       </form>
-      {/*{recipes.map(recipe => <div>{recipe.recipe.label}</div>)}*/}
+      
       <Recipes recipes = {recipes} />
     </div>
   )

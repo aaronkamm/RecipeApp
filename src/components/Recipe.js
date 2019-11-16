@@ -22,7 +22,6 @@ const useStyles = makeStyles(theme => ({
 const Recipe = ({recipe}) => {
   const classes = useStyles();
 
-  
   //Modal open state
   const [open, setOpen] = useState(false);
 
@@ -38,7 +37,7 @@ const Recipe = ({recipe}) => {
 
   return(
     <div>
-      <Button onClick = {handleOpen}>Recipe</Button>
+      <Button onClick = {handleOpen}>Ingredients</Button>
       <Modal open = {open} onClose = {handleClose} className = {classes.modal} >
         <div className = {classes.paper}>
           <h2>{recipe.recipe.label}</h2>
