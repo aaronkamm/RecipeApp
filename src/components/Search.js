@@ -23,7 +23,7 @@ const Search = () => {
     const recipeFetch = async () => {
       const res = await fetch(edamamResults);
       const data = await res.json();
-      // console.log(data.hits);
+      console.log(data.hits);
       setRecipes(data.hits);
       console.log(data);
       console.log('hello');

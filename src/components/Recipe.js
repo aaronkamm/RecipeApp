@@ -42,7 +42,12 @@ const Recipe = ({recipe}) => {
       <Modal open = {open} onClose = {handleClose} className = {classes.modal} >
         <div className = {classes.paper}>
           <h2>{recipe.recipe.label}</h2>
-          <h4>What you'll need</h4>
+          <ul>
+            {(recipe.recipe.ingredients).map((ingredient, index) => 
+              <li key = {index}>{ingredient.text}</li>
+            )}
+          </ul>
+          
           <Button onClick = {handleClose}>Close</Button>
         </div>
       </Modal>
