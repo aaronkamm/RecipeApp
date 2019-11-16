@@ -51,15 +51,16 @@ const Search = () => {
     setQuery(search);
     setSearch('');
   };
+
   const classes = useStyles();
+
   return(
     <div>
       <form onSubmit = {handleSearch} className = {classes.search}>
         <Input 
           type = "text"
           onChange = {updateSearch}
-          value = {search}
-          
+          value = {search} 
         />
         <Button variant = "contained" disabled = {!search ? true : false}>Search -- I'm hungry!</Button>
       </form>

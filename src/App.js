@@ -4,9 +4,13 @@ import Search from './components/Search';
 import Toolbar from '@material-ui/core/Toolbar';
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
+import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
+
+
 
 const App = () => {
   return (
+    
     <div className = "App">
       <AppBar position = "static">
         <Toolbar>
@@ -15,6 +19,7 @@ const App = () => {
       </AppBar>
       <Search />
     </div>
+   
   );
 }
 

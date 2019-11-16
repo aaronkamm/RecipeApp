@@ -7,7 +7,8 @@ const useStyles = makeStyles(theme => ({
   modal: {
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+   
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
@@ -37,7 +38,7 @@ const Recipe = ({recipe}) => {
   return(
     <div>
       <Button onClick = {handleOpen}>Ingredients</Button>
-      <Modal disableAutoFocus={true} open = {open} onClose = {handleClose} className = {classes.modal} >
+      <Modal open = {open} onClose = {handleClose} className = {classes.modal} >
         <div className = {classes.paper} >
           <h2>{recipe.recipe.label}</h2>
           <ul>

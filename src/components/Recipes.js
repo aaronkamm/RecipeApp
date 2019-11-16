@@ -19,7 +19,6 @@ const useStyles = makeStyles({
 
 const Recipes = ({recipes}) => {
   const classes = useStyles();
-
   return (
     <div style = {{margin: `2rem 2rem 0 2rem`}} className = {classes.root}>
       <Grid 
