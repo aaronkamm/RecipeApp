@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles(theme => ({
   modal: {
@@ -40,7 +41,7 @@ const Recipe = ({recipe}) => {
       <Button onClick = {handleOpen}>Ingredients</Button>
       <Modal open = {open} onClose = {handleClose} className = {classes.modal} >
         <div className = {classes.paper} >
-          <h2>{recipe.recipe.label}</h2>
+          <Typography variant = 'h5' component = 'h2'>{recipe.recipe.label}</Typography>
           <ul>
             {(recipe.recipe.ingredients).map((ingredient, index) => 
               <li key = {index}>{ingredient.text}</li>

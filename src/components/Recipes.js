@@ -6,6 +6,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Recipe from './Recipe';
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   root: {
@@ -35,7 +36,7 @@ const Recipes = ({recipes}) => {
                     height = {100}
                   />
                   <CardContent>
-                    {recipe.recipe.label}
+                    <Typography variant = "h6" component = "h2">{recipe.recipe.label}</Typography>
                   </CardContent>
                   <CardActions>
                     {/* To launch modal containing recipe/ingredients*/}
