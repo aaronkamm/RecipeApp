@@ -3,6 +3,8 @@ import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import Fade from '@material-ui/core/Fade';
+
 
 const useStyles = makeStyles(theme => ({
   modal: {
@@ -16,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     border: '2px solid #000',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
-    width: `50%`
+    maxWidth: `65%`
   }
 }));
 
@@ -40,16 +42,17 @@ const Recipe = ({recipe}) => {
     <div>
       <Button onClick = {handleOpen}>Ingredients</Button>
       <Modal open = {open} onClose = {handleClose} className = {classes.modal} >
-        <div className = {classes.paper} >
-          <Typography variant = 'h5' component = 'h2'>{recipe.recipe.label}</Typography>
-          <ul>
-            {(recipe.recipe.ingredients).map((ingredient, index) => 
-              <li key = {index}>{ingredient.text}</li>
-            )}
-          </ul>
-          
-          <Button onClick = {handleClose}>Close</Button>
-        </div>
+        <Fade in = {open} timeout = {500}>
+          <div className = {classes.paper} >
+            <Typography variant = 'h5' component = 'h2'>{recipe.recipe.label}</Typography>
+            <ul>
+              {(recipe.recipe.ingredients).map((ingredient, index) => 
+                <li key = {index}>{ingredient.text}</li>
+              )}
+            </ul>
+            <Button onClick = {handleClose}>Close</Button>
+          </div>
+        </Fade>
       </Modal>
     </div>
   )

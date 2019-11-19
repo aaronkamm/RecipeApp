@@ -14,7 +14,7 @@ const useStyles = makeStyles({
   },
   card: {
     maxWidth: 345,
-    height: 250
+    maxHeight: 250
   }
 })
 

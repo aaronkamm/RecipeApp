@@ -12,11 +12,18 @@ const useStyles = makeStyles({
 const Welcome = () => {
   const classes = useStyles();
   return (
-    <section className = {classes.welcome}>
-      <Typography variant = "h4" component = "h1">
-        Welcome!
-      </Typography>
-    </section>
+    <React.Fragment>
+      <section className = {classes.welcome}>
+        <Typography variant = "h3" component = "h1">
+          Welcome!
+        </Typography>
+      </section>
+      <section className = {classes.welcome}>
+        <Typography variant = 'subtitle1' component = 'h6'>
+          Get all your favorite recipes here 🍔🍞😋
+        </Typography>
+      </section>
+    </React.Fragment>
   )
 }
 
