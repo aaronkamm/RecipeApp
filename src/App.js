@@ -7,13 +7,16 @@ import Typography from '@material-ui/core/Typography';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import Welcome from './components/Welcome';
 
+
 const App = () => {
   return (
     <Router>
       <div className = "App">
         <AppBar position = "static">
           <Toolbar>
-            <Typography variant = "h4" component = "h1">Recipe Finder</Typography>
+            <Typography variant = "h4" component = "h1">
+              Recipe Finder
+            </Typography>
           </Toolbar>
         </AppBar>
         <Search />

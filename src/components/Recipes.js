@@ -14,7 +14,12 @@ const useStyles = makeStyles({
   },
   card: {
     maxWidth: 345,
-    maxHeight: 250
+    maxHeight: 400
+  },
+  media: {
+    height: 0,
+    // height: 100
+    paddingTop: '56.25%'
   }
 })
 
@@ -30,10 +35,9 @@ const Recipes = ({recipes}) => {
             <Grid item xs = {12} sm = {6} md = {4} >
               <Card className = {classes.card} key = {index}>
                   <CardMedia
-                    component = "img"
-                    src = {recipe.recipe.image} 
+                    image = {recipe.recipe.image} 
                     alt = {recipe.recipe.label} 
-                    height = {100}
+                    className = {classes.media}
                   />
                   <CardContent>
                     <Typography variant = "h6" component = "h2">{recipe.recipe.label}</Typography>

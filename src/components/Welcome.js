@@ -20,7 +20,7 @@ const Welcome = () => {
       </section>
       <section className = {classes.welcome}>
         <Typography variant = 'subtitle1' component = 'h6'>
-          Get all your favorite recipes here 🍔🍞😋
+          Get all your favorite recipes here <span role = 'img' aria-label= 'emojis'>🍔🍞😋</span>
         </Typography>
       </section>
     </React.Fragment>
