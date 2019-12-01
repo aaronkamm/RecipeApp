@@ -32,7 +32,7 @@ const Recipes = ({recipes}) => {
         spacing = {2}
       >
         {recipes.map((recipe, index) =>
-            <Grid item xs = {12} sm = {6} md = {4} >
+            <Grid key = {index} item xs = {12} sm = {6} md = {4} >
               <Card className = {classes.card} key = {index}>
                   <CardMedia
                     image = {recipe.recipe.image} 
