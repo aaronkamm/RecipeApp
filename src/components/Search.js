@@ -3,7 +3,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import Recipes from './Recipes';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
-import {withRouter} from 'react-router-dom';
+import {useHistory, withRouter} from 'react-router-dom';
+import { connect } from 'react-redux';
+import {fetchRecipes} from '../actions/recipeActions'
+
 
 
 const useStyles = makeStyles({
@@ -28,19 +31,24 @@ const Search = (props) => {
   //Chicken search query example
   const edamamResults = `https://api.edamam.com/search?q=${query}&app_id=${appID}&app_key=${appKey}`;
 
+  let history = useHistory();
+
   //[query] causes useEffect to run after "query" is updated on form submit 
+  // useEffect(() => {
+  //   const recipeFetch = async () => {
+  //     const res = await fetch(edamamResults);
+  //     const data = await res.json();
+  //     console.log(data.hits);
+  //     setRecipes(data.hits);
+  //     console.log(data);
+  //   };
+  //   recipeFetch();
+  // }, [query]);
   useEffect(() => {
-    const recipeFetch = async () => {
-      const res = await fetch(edamamResults);
-      const data = await res.json();
-      console.log(data.hits);
-      setRecipes(data.hits);
-      console.log(data);
-    };
-    recipeFetch();
+    props.fetchRecipes(query)
   }, [query]);
 
-  //Update state for search 
+  //Update state for search  -- KEEP THIS STATE AND HANDLER LOCAL?
   const updateSearch = e => {
     setSearch(e.target.value);
     console.log(search.length)
@@ -52,6 +60,7 @@ const Search = (props) => {
     e.preventDefault();
     setQuery(search);
     props.history.push(`/${search}`)
+    // history.push(`/${search}`)
     setSearch('');
   };
 
@@ -68,9 +77,11 @@ const Search = (props) => {
         <Button variant = "contained" disabled = {!search ? true : false}>Search -- I'm hungry!</Button>
       </form>
       
-      <Recipes recipes = {recipes} />
+      {/*<Recipes recipes = {recipes} /> */}
+      <Recipes  />
     </div>
   )
 }
 
-export default withRouter(Search);
+// export default withRouter(Search);
+export default withRouter(connect(null, {fetchRecipes})(Search));

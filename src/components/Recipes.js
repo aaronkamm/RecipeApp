@@ -7,6 +7,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Recipe from './Recipe';
 import Typography from '@material-ui/core/Typography';
+import { connect } from 'react-redux';
 
 const useStyles = makeStyles({
   root: {
@@ -48,11 +49,15 @@ const Recipes = ({recipes}) => {
                   </CardActions>
               </Card>
             </Grid>)
-            
+
         }
       </Grid>
     </div>
   )
   }
+  const mapStateToProps = state => ({
+    recipes: state.results.recipes 
+  })
 
-export default Recipes;
+// export default Recipes;
+export default connect(mapStateToProps, null)(Recipes)

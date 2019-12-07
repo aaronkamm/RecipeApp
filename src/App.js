@@ -5,10 +5,11 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Welcome from './components/Welcome';
 import NavBar from './components/NavBar';
 import {Provider} from 'react-redux';
+import store from './store';
 
 
 
-const App = ({store}) => {
+const App = () => {
   return (
     <Provider store = {store}>
       <Router>
