@@ -7,7 +7,6 @@ import {useHistory, withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
 import {fetchRecipes, setQuery} from '../actions/recipeActions';
 
-
 const useStyles = makeStyles({
   search: {
     display: 'flex',
@@ -15,33 +14,15 @@ const useStyles = makeStyles({
   }
 })
 
-const Search = (props) => {
+const Search = ({query, fetchRecipes, setQuery, history}) => {
   //Search state
   const [search, setSearch] = useState('');
 
-  //Edamam app ID & Key
-  const appID = "91f4a4a3";
-  const appKey = "e21f772a7044945e7fa814b009bd64c5"; 
-
-  let history = useHistory();
-
-  //[query] causes useEffect to run after "query" is updated on form submit 
-  // useEffect(() => {
-  //   const recipeFetch = async () => {
-  //     const res = await fetch(edamamResults);
-  //     const data = await res.json();
-  //     console.log(data.hits);
-  //     setRecipes(data.hits);
-  //     console.log(data);
-  //   };
-  //   recipeFetch();
-  // }, [query]);
-
   useEffect(() => {
-    props.fetchRecipes(props.query)
-  }, [props.query]);
+    fetchRecipes(query)
+  }, [query]);
 
-  //Update local state for search
+  //Update local search state
   const updateSearch = e => {
     setSearch(e.target.value);
     console.log(search.length)
@@ -51,10 +32,8 @@ const Search = (props) => {
   //To handle search submission for search
   const handleSearch = e => {
     e.preventDefault();
-    // setQuery(search); //Replace with action
-    props.setQuery(search)
-    props.history.push(`/${search}`)
-    // history.push(`/${search}`)
+    setQuery(search)
+    history.push(`/${search}`)
     setSearch('');
   };
 
@@ -71,14 +50,12 @@ const Search = (props) => {
         <Button variant = "contained" disabled = {!search ? true : false}>Search -- I'm hungry!</Button>
       </form>
       
-      {/*<Recipes recipes = {recipes} /> */}
-      <Recipes  />
+      <Recipes/>
     </div>
   )
 }
 
 const mapStateToProps = state => ({
-  recipes: state.results.recipes,
   query: state.results.query
 })
 

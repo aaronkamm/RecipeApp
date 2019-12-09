@@ -1,7 +1,6 @@
 import {HANDLE_FETCH, HANDLE_SUBMIT} from '../actions/types';
 
 const initialState = {
-  search: '',
   recipes: [],
   query: ''
 };
