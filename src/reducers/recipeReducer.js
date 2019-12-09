@@ -1,10 +1,9 @@
-import {HANDLE_FETCH} from '../actions/types';
+import {HANDLE_FETCH, HANDLE_SUBMIT} from '../actions/types';
 
 const initialState = {
-  // search: '',
+  search: '',
   recipes: [],
-  query: '',
-  search: ''
+  query: ''
 };
 
 export default function(state = initialState, action){
@@ -13,6 +12,11 @@ export default function(state = initialState, action){
       return {
         ...state,
         recipes: action.payload
+      }
+    case HANDLE_SUBMIT:
+      return {
+        ...state,
+        query: action.payload
       }
       default: 
         return state
