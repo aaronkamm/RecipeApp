@@ -47,7 +47,7 @@ const Search = ({query, fetchRecipes, setQuery, history}) => {
           onChange = {updateSearch}
           value = {search}
         />
-        <Button variant = "contained" disabled = {!search ? true : false}>Search -- I'm hungry!</Button>
+        <Button variant = "contained" color = "secondary" disabled = {!search ? true : false}>Search -- I'm hungry!</Button>
       </form>
       
       <Recipes/>
