@@ -19,7 +19,6 @@ const useStyles = makeStyles({
   },
   media: {
     height: 0,
-    // height: 100
     paddingTop: '56.25%'
   }
 })

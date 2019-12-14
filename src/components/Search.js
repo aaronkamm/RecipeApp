@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Recipes from './Recipes';
-import Input from '@material-ui/core/Input';
+import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import {useHistory, withRouter} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
 import {fetchRecipes, setQuery} from '../actions/recipeActions';
 
@@ -42,15 +42,13 @@ const Search = ({query, fetchRecipes, setQuery, history}) => {
   return(
     <div>
       <form onSubmit = {handleSearch} className = {classes.search}>
-        <Input 
-          type = "text"
+        <TextField 
           onChange = {updateSearch}
           value = {search}
+          placeholder = 'Recipe'
         />
-        <Button variant = "contained" color = "secondary" disabled = {!search ? true : false}>Search -- I'm hungry!</Button>
+        <Button type = 'submit' variant = "contained" color = "secondary" disabled = {!search ? true : false}>Search -- I'm hungry!</Button>
       </form>
-      
-      <Recipes/>
     </div>
   )
 }

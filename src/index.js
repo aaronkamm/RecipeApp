@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
@@ -12,10 +12,10 @@ const theme = createMuiTheme({
   },
   palette: {
     primary: {
-      main: `#009688`,
+      main: `#009688`
     },
     secondary: {
-      main: `#fb8c00`,
+      main: `#fb8c00`
     }
   }
 })
