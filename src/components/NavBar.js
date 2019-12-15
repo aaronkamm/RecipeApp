@@ -11,7 +11,7 @@ const NavBar = () => {
     <div>
       <AppBar position = "static">
         <Toolbar>
-          <Typography variant = "h4" component = "h1">
+          <Typography variant = "h6">
             <Link href = '/' color = 'inherit'>Recipe Finder</Link>
           </Typography>
           <Search />

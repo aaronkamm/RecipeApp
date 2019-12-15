@@ -1,18 +1,37 @@
 import React, {useEffect, useState} from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Recipes from './Recipes';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
+import { fade, makeStyles } from '@material-ui/core/styles';
+// import Button from '@material-ui/core/Button';
+import SearchIcon from '@material-ui/icons/Search';
 import {withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
 import {fetchRecipes, setQuery} from '../actions/recipeActions';
+import InputBase from '@material-ui/core/InputBase';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   search: {
-    display: 'flex',
-    justifyContent: 'center'
+    position: 'relative',
+    backgroundColor: fade(theme.palette.common.white, 0.12),
+    '&:hover':{
+      backgroundColor: fade(theme.palette.common.white, 0.22)
+    },
+    borderRadius: theme.shape.borderRadius,
+    [theme.breakpoints.up('xs')]: {
+      marginLeft: theme.spacing(3),
+      width: 'auto'
+    },
+    width: '100%'
+  },
+
+  searchIcon: {
+    width: theme.spacing(3),
+    position: 'absolute',
+    height: '100%'
+  },
+
+  inputBox: {
+    padding: theme.spacing(1, 1, 1, 5)
   }
-})
+}))
 
 const Search = ({query, fetchRecipes, setQuery, history}) => {
   //Search state
@@ -40,14 +59,17 @@ const Search = ({query, fetchRecipes, setQuery, history}) => {
   const classes = useStyles();
 
   return(
-    <div>
-      <form onSubmit = {handleSearch} className = {classes.search}>
-        <TextField 
+    <div className = {classes.search}>
+      <form onSubmit = {handleSearch}>
+        <div><SearchIcon className = {classes.searchIcon}/></div>
+        <InputBase 
           onChange = {updateSearch}
           value = {search}
-          placeholder = 'Recipe'
+          placeholder = 'Recipe search'
+          style = {{'color': 'inherit'}}
+          className = {classes.inputBox}
         />
-        <Button type = 'submit' variant = "contained" color = "secondary" disabled = {!search ? true : false}>Search -- I'm hungry!</Button>
+        {/*<Button type = 'submit' variant = "contained" color = "secondary" disabled = {!search ? true : false}>Search -- I'm hungry!</Button>*/}
       </form>
     </div>
   )
