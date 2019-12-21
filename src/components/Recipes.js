@@ -8,6 +8,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Recipe from './Recipe';
 import Typography from '@material-ui/core/Typography';
 import { connect } from 'react-redux';
+import {withRouter} from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {

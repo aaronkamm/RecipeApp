@@ -13,10 +13,9 @@ const App = () => {
     <Provider store = {store}>
       <ConnectedRouter history = {history}>
         <div className = "App">
-          
           <NavBar/>
           <Route exact path = '/' component = {Welcome} /> 
-          <Recipes />
+          <Route exact path = '/:recipe' component = {Recipes} />
         </div>
       </ConnectedRouter>
     </Provider>

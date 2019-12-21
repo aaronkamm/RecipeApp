@@ -10,6 +10,7 @@ export const fetchRecipes = (query) => dispatch => {
       type: HANDLE_FETCH,
       payload: data.hits
     }))
+
 };
 
 export const setQuery = (search) => dispatch => {

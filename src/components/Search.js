@@ -6,6 +6,8 @@ import {withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
 import {fetchRecipes, setQuery} from '../actions/recipeActions';
 import InputBase from '@material-ui/core/InputBase';
+import { push } from 'connected-react-router';
+
 
 const useStyles = makeStyles(theme => ({
   search: {
@@ -33,7 +35,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const Search = ({query, fetchRecipes, setQuery, history})=> {
+const Search = ({query, fetchRecipes, setQuery, push})=> {
   //Search state
   const [search, setSearch] = useState('');
 
@@ -51,10 +53,8 @@ const Search = ({query, fetchRecipes, setQuery, history})=> {
   //To handle search submission for search
   const handleSearch = e => {
     e.preventDefault();
-    history.push(`/${search}`);
+    push(`/${search}`);
     setQuery(search);
-    
-   
     setSearch('');
   };
 
@@ -82,4 +82,5 @@ const mapStateToProps = state => ({
 })
 
 // export default withRouter(Search);
-export default withRouter(connect(mapStateToProps, {fetchRecipes, setQuery})(Search));
+// export default withRouter(connect(mapStateToProps, {fetchRecipes, setQuery})(Search));
+export default connect(mapStateToProps, {fetchRecipes, setQuery, push})(Search);
