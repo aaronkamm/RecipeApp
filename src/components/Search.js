@@ -33,7 +33,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const Search = ({query, fetchRecipes, setQuery, history}) => {
+const Search = ({query, fetchRecipes, setQuery, history})=> {
   //Search state
   const [search, setSearch] = useState('');
 
@@ -51,8 +51,10 @@ const Search = ({query, fetchRecipes, setQuery, history}) => {
   //To handle search submission for search
   const handleSearch = e => {
     e.preventDefault();
-    setQuery(search)
-    history.push(`/${search}`)
+    history.push(`/${search}`);
+    setQuery(search);
+    
+   
     setSearch('');
   };
 
