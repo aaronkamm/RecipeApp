@@ -8,7 +8,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Recipe from './Recipe';
 import Typography from '@material-ui/core/Typography';
 import { connect } from 'react-redux';
-import {withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
@@ -22,42 +22,40 @@ const useStyles = makeStyles({
     height: 0,
     paddingTop: '56.25%'
   }
-})
+});
 
-const Recipes = ({recipes}) => {
+const Recipes = ({ recipes }) => {
   const classes = useStyles();
   return (
-    <div style = {{margin: `2rem 2rem 0 2rem`}} className = {classes.root}>
-      <Grid 
-        container
-        spacing = {2}
-      >
-        {recipes.map((recipe, index) =>
-            <Grid key = {index} item xs = {12} sm = {6} md = {4} >
-              <Card className = {classes.card} key = {index}>
-                  <CardMedia
-                    image = {recipe.recipe.image} 
-                    alt = {recipe.recipe.label} 
-                    className = {classes.media}
-                  />
-                  <CardContent>
-                    <Typography variant = "h6" component = "h2">{recipe.recipe.label}</Typography>
-                  </CardContent>
-                  <CardActions>
-                    {/* To launch modal containing recipe/ingredients*/}
-                    <Recipe recipe = {recipe}/>
-                  </CardActions>
-              </Card>
-            </Grid>)
-
-        }
+    <div style={{ margin: `2rem 2rem 0 2rem` }} className={classes.root}>
+      <Grid container spacing={2}>
+        {recipes.map((recipe, index) => (
+          <Grid key={index} item xs={12} sm={6} md={4}>
+            <Card className={classes.card} key={index}>
+              <CardMedia
+                image={recipe.recipe.image}
+                alt={recipe.recipe.label}
+                className={classes.media}
+              />
+              <CardContent>
+                <Typography variant="h6" component="h2">
+                  {recipe.recipe.label}
+                </Typography>
+              </CardContent>
+              <CardActions>
+                {/* To launch modal containing recipe/ingredients*/}
+                <Recipe recipe={recipe} />
+              </CardActions>
+            </Card>
+          </Grid>
+        ))}
       </Grid>
     </div>
-  )
-  }
-  const mapStateToProps = state => ({
-    recipes: state.results.recipes 
-  })
+  );
+};
+const mapStateToProps = state => ({
+  recipes: state.results.recipes
+});
 
 // export default Recipes;
-export default connect(mapStateToProps, null)(Recipes)
+export default connect(mapStateToProps, null)(Recipes);
