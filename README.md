@@ -1,4 +1,4 @@
-# Recipe Finder
+# RecipeBot
 
 ### A snazzy app to discover your favorite recipes 
 
