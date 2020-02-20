@@ -14,8 +14,10 @@ const App = () => {
       <ConnectedRouter history={history}>
         <div className="App">
           <NavBar />
-          <Route exact path="/:recipe" component={Recipes} />
-          <Route exact path="/" component={Welcome} />
+          <Switch>
+            <Route exact path="/" component={Welcome} />
+            <Route path="/:recipe" component={Recipes} />
+          </Switch>
         </div>
       </ConnectedRouter>
     </Provider>
